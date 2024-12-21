@@ -41,7 +41,7 @@ namespace Eigen {
  * \param[in] degree The spline degree which is used during the interpolation.
  * \param[out] knots The output knot vector.
  *
- * \sa Les Piegl and Wayne Tiller, The NURBS book (2nd ed.), 1997, 9.2.1 Global Curve Interpolation to Point Data
+ * \sa Les Piegl and Wayne Tiller, The NURBS book (2nd ed.), 1997, 9.2.1 Global Curve interpolation to Point Data
  **/
 template <typename KnotVectorType>
 void KnotAveraging(const KnotVectorType& parameters, DenseIndex degree, KnotVectorType& knots) {
@@ -165,7 +165,7 @@ void KnotAveragingWithDerivatives(const ParameterVectorType& parameters, const u
  * \param[in] pts The data points to which a spline should be fit.
  * \param[out] chord_lengths The resulting chord length vector.
  *
- * \sa Les Piegl and Wayne Tiller, The NURBS book (2nd ed.), 1997, 9.2.1 Global Curve Interpolation to Point Data
+ * \sa Les Piegl and Wayne Tiller, The NURBS book (2nd ed.), 1997, 9.2.1 Global Curve interpolation to Point Data
  **/
 template <typename PointArrayType, typename KnotVectorType>
 void ChordLengths(const PointArrayType& pts, KnotVectorType& chord_lengths) {

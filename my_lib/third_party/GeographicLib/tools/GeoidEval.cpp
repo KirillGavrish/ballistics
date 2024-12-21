@@ -177,7 +177,7 @@ int main(int argc, const char* const argv[]) {
       if (verbose) {
         std::cerr << "Geoid file: "    << g.GeoidFile()     << "\n"
                   << "Description: "   << g.Description()   << "\n"
-                  << "Interpolation: " << g.Interpolation() << "\n"
+                  << "interpolation: " << g.Interpolation() << "\n"
                   << "Date & Time: "   << g.DateTime()      << "\n"
                   << "Offset (m): "    << g.Offset()        << "\n"
                   << "Scale (m): "     << g.Scale()         << "\n"

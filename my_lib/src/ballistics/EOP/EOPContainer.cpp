@@ -1,5 +1,5 @@
 #include "EOPContainer.hpp"
-#include "ballistics/Interpolation/Interpolant.hpp"
+#include "ballistics/interpolation/Interpolant.hpp"
 
 EOPContainer::EOPContainer(
        std::vector<double> const &mjDays,

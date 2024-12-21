@@ -1,22 +1,19 @@
-//
-// Created by Kirill Gavrish on 19.12.2024.
-//
-
 #ifndef TIMECONVERTER_HPP
 #define TIMECONVERTER_HPP
 #include "Time.hpp"
 #include "ballistics/exceptions/BallisticsException.hpp"
 #include "sofa/sofa.h"
 
+using UT1 = Time<Scale::UT1>;
+using UTC = Time<Scale::UTC>;
+using TT  = Time<Scale::TT>;
+using TCB = Time<Scale::TCB>;
+using TCG = Time<Scale::TCG>;
+using TDB = Time<Scale::TDB>;
+using TAI = Time<Scale::TAI>;
+
 template <typename DutContainer>
 class TimeConverter {
-    using UT1 = Time<Scale::UT1>;
-    using UTC = Time<Scale::UTC>;
-    using TT  = Time<Scale::TT>;
-    using TCB = Time<Scale::TCB>;
-    using TCG = Time<Scale::TCG>;
-    using TDB = Time<Scale::TDB>;
-    using TAI = Time<Scale::TAI>;
 
     DutContainer const &dutContainer_;
 public:
@@ -24,7 +21,7 @@ public:
     [[nodiscard]] double dut(UTC const &mjDay) const;
 
     template <Scale ScaleTo, Scale ScaleFrom>
-    [[nodiscard]] Time<ScaleTo> convert(Time<ScaleFrom> const &);
+    [[nodiscard]] Time<ScaleTo> convert(Time<ScaleFrom> const &) const;
 
     template <typename, typename>
     [[nodiscard]] Time<Scale::UT1> static convert(UTC const &t)
@@ -39,10 +36,10 @@ public:
     }
 
     template <typename, typename>
-    [[nodiscard]] Time<Scale::UTC> static convert(UT1 const &t)
+    [[nodiscard]] Time<Scale::UTC> convert(UT1 const &t) const
     {
         UTC const utcTmp{t.jDay(), t.jDayPart()};
-        double const Dut = dut(utcTmp + (-dutContainer_.dut(utcTmp.mjDay()))/86400);
+        double const Dut = dut(utcTmp + (- dutContainer_.dut(utcTmp.mjDay()))/86400);
         double jDay, jDayPart;
         int const sofaError = static_cast<int>(iauUt1utc(t.jDay(),t.jDayPart(), Dut, &jDay, &jDayPart));
 
@@ -96,7 +93,7 @@ public:
     [[nodiscard]] Time<Scale::TDB> static convert(TT const &t)
     {
         double jDay, jDayPart;
-        double constexpr dtr = 0.001657*std::sin(6.24 + 0.017202 * (t.jDay() + t.jDayPart()) - 2451545);
+        double const dtr = 0.001657*std::sin(6.24 + 0.017202 * (t.jDay() + t.jDayPart()) - 2451545);
 
         int const sofaError = static_cast<int>(iauTttdb(t.jDay(),t.jDayPart(), dtr, &jDay, &jDayPart));
         if (sofaError == -1) {
@@ -109,7 +106,7 @@ public:
     [[nodiscard]] Time<Scale::TT> static convert(TDB const &t)
     {
         double jDay, jDayPart;
-        double constexpr dtr = 0.001657*std::sin(6.24 + 0.017202 * (t.jDay() + t.jDayPart()) - 2451545);
+        double const dtr = 0.001657*std::sin(6.24 + 0.017202 * (t.jDay() + t.jDayPart()) - 2451545);
 
         int const sofaError = static_cast<int>(iauTdbtt(t.jDay(),t.jDayPart(), dtr, &jDay, &jDayPart));
         if (sofaError == -1) {

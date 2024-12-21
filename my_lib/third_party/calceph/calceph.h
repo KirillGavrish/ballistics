@@ -185,13 +185,13 @@ extern "C"
 #define CALCEPH_SEGTYPE_SPK_2  2   /*!< Chebyshev polynomials for position. fixed length time intervals.The time argument for these ephemerides is TDB */
 #define CALCEPH_SEGTYPE_SPK_3  3   /*!< Chebyshev polynomials for position and velocity. fixed length time intervals. The time argument for these ephemerides is TDB */
 #define CALCEPH_SEGTYPE_SPK_5  5   /*!< Discrete states (two body propagation).  The time argument for these ephemerides is TDB */
-#define CALCEPH_SEGTYPE_SPK_8  8   /*!< Lagrange Interpolation - Equal Time Steps. The time argument for these ephemerides is TDB */
-#define CALCEPH_SEGTYPE_SPK_9  9   /*!< Lagrange Interpolation - Unequal Time Steps. The time argument for these ephemerides is TDB */
-#define CALCEPH_SEGTYPE_SPK_12 12  /*!< Hermite Interpolation - Equal Time Steps. The time argument for these ephemerides is TDB */
-#define CALCEPH_SEGTYPE_SPK_13 13  /*!< Hermite Interpolation - Unequal Time Steps. The time argument for these ephemerides is TDB */
+#define CALCEPH_SEGTYPE_SPK_8  8   /*!< Lagrange interpolation - Equal Time Steps. The time argument for these ephemerides is TDB */
+#define CALCEPH_SEGTYPE_SPK_9  9   /*!< Lagrange interpolation - Unequal Time Steps. The time argument for these ephemerides is TDB */
+#define CALCEPH_SEGTYPE_SPK_12 12  /*!< Hermite interpolation - Equal Time Steps. The time argument for these ephemerides is TDB */
+#define CALCEPH_SEGTYPE_SPK_13 13  /*!< Hermite interpolation - Unequal Time Steps. The time argument for these ephemerides is TDB */
 #define CALCEPH_SEGTYPE_SPK_17 17  /*!< Equinoctial Elements. The time argument for these ephemerides is TDB */
-#define CALCEPH_SEGTYPE_SPK_18 18  /*!< ESOC/DDID Hermite/Lagrange Interpolation.  The time argument for these ephemerides is TDB */
-#define CALCEPH_SEGTYPE_SPK_19 19  /*!< ESOC/DDID Piecewise Interpolation. The time argument for these ephemerides is TDB */
+#define CALCEPH_SEGTYPE_SPK_18 18  /*!< ESOC/DDID Hermite/Lagrange interpolation.  The time argument for these ephemerides is TDB */
+#define CALCEPH_SEGTYPE_SPK_19 19  /*!< ESOC/DDID Piecewise interpolation. The time argument for these ephemerides is TDB */
 #define CALCEPH_SEGTYPE_SPK_20 20  /*!< Chebyshev polynomials for velocity. fixed length time intervals. The time argument for these ephemerides is TDB */
 #define CALCEPH_SEGTYPE_SPK_21 21  /*!< Extended Modified Difference Arrays. The time argument for these ephemerides is TDB */
 #define CALCEPH_SEGTYPE_SPK_102 102 /*!< Chebyshev polynomials for position. fixed length time intervals.  The time argument for these ephemerides is TCB */

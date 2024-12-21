@@ -140,19 +140,19 @@ enum SPKdatatype
                                    length time intervals. The time argument for these ephemerides is TDB */
     SPK_SEGTYPE5 = 5,           /*!< Discrete states (two body propagation).
                                    The time argument for these ephemerides is TDB */
-    SPK_SEGTYPE8 = 8,           /*!< Lagrange Interpolation - Equal Time Steps.
+    SPK_SEGTYPE8 = 8,           /*!< Lagrange interpolation - Equal Time Steps.
                                    The time argument for these ephemerides is TDB */
-    SPK_SEGTYPE9 = 9,           /*!< Lagrange Interpolation - Unequal Time Steps.
+    SPK_SEGTYPE9 = 9,           /*!< Lagrange interpolation - Unequal Time Steps.
                                    The time argument for these ephemerides is TDB */
-    SPK_SEGTYPE12 = 12,         /*!< Hermite Interpolation - Equal Time Steps.
+    SPK_SEGTYPE12 = 12,         /*!< Hermite interpolation - Equal Time Steps.
                                    The time argument for these ephemerides is TDB */
-    SPK_SEGTYPE13 = 13,         /*!< Hermite Interpolation - Unequal Time Steps.
+    SPK_SEGTYPE13 = 13,         /*!< Hermite interpolation - Unequal Time Steps.
                                    The time argument for these ephemerides is TDB */
     SPK_SEGTYPE17 = 17,         /*!< Equinoctial Elements.
                                    The time argument for these ephemerides is TDB */
-    SPK_SEGTYPE18 = 18,         /*!< ESOC/DDID Hermite/Lagrange Interpolation.
+    SPK_SEGTYPE18 = 18,         /*!< ESOC/DDID Hermite/Lagrange interpolation.
                                    The time argument for these ephemerides is TDB */
-    SPK_SEGTYPE19 = 19,         /*!< ESOC/DDID Piecewise Interpolation.
+    SPK_SEGTYPE19 = 19,         /*!< ESOC/DDID Piecewise interpolation.
                                    The time argument for these ephemerides is TDB */
     SPK_SEGTYPE20 = 20,         /*!< Chebyshev polynomials for velocity. fixed length time
                                    intervals. The time argument for these ephemerides is TDB */

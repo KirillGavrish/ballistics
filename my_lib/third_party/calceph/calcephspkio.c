@@ -847,7 +847,7 @@ static int calceph_spk_readsegment_header(FILE * file, const char *filename, str
                         seg->seginfo.data18.degree = seg->seginfo.data18.window_size - 1;
                         break;
                     default:
-                        fatalerror("Unknown subtype for ESOC/DDID Hermite/Lagrange Interpolation");
+                        fatalerror("Unknown subtype for ESOC/DDID Hermite/Lagrange interpolation");
                         break;
                 }
                 if (nrecord >= 100)

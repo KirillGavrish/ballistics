@@ -94,7 +94,7 @@ knowledge of the CeCILL-C,CeCILL-B or CeCILL license and that you accept its ter
 static void calceph_spk_interpol_Lagrange_an(int m, const double *y, const double *x, double *a);
 
 /*--------------------------------------------------------------------------*/
-/*!  This function performs the Lagrange Interpolation.
+/*!  This function performs the Lagrange interpolation.
  
  @param m (in) degree of the polynomial.
  @param y (in) array of m+1 points
@@ -131,7 +131,7 @@ static void calceph_spk_interpol_Lagrange_an(int m, const double *x, const doubl
 
 /*--------------------------------------------------------------------------*/
 /*!  This function computes position and velocity vectors
-     using the Lagrange Interpolation.                                      
+     using the Lagrange interpolation.
                                           
  @param S (in) number of valid points in drecord .
  It assumes that S <1000/2 .                                                                        

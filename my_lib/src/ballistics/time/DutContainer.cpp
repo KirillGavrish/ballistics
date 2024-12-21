@@ -1,5 +1,5 @@
 #include "DutContainer.hpp"
-#include "ballistics/Interpolation/Interpolant.hpp"
+#include "ballistics/interpolation/Interpolant.hpp"
 
 DutContainer::DutContainer(EOPContainer const &eopContainer)
     : mjDays_(eopContainer.mjDays()), duts_(eopContainer.duts())
