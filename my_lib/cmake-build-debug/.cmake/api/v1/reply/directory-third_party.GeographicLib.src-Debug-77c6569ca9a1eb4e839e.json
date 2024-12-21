@@ -1,0 +1,60 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"third_party/GeographicLib/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 163,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"third_party/GeographicLib/src/libGeographicLib.26.1.0.dylib",
+				"third_party/GeographicLib/src/libGeographicLib.26.dylib"
+			],
+			"targetId" : "GeographicLib_SHARED::@8f218b592da01ec2865b",
+			"targetIndex" : 0,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"third_party/GeographicLib/src/libGeographicLib.dylib"
+			],
+			"targetId" : "GeographicLib_SHARED::@8f218b592da01ec2865b",
+			"targetIndex" : 0,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "third_party/GeographicLib/src",
+		"source" : "third_party/GeographicLib/src"
+	}
+}

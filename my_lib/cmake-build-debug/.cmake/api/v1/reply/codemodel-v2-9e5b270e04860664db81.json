@@ -1,0 +1,766 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						26
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "third_party",
+					"childIndexes" : 
+					[
+						3,
+						4,
+						5,
+						15,
+						23
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party-Debug-9b836fc236528aa76e21.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "third_party"
+				},
+				{
+					"build" : "third_party/calceph",
+					"jsonFile" : "directory-third_party.calceph-Debug-055cb62e0b40c4a7b908.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "third_party/calceph",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "third_party/sofa",
+					"jsonFile" : "directory-third_party.sofa-Debug-ca2b1863fddfe54a0aaa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "third_party/sofa",
+					"targetIndexes" : 
+					[
+						18
+					]
+				},
+				{
+					"build" : "third_party/GeographicLib",
+					"childIndexes" : 
+					[
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib-Debug-27062e70638c227a13db.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "third_party/GeographicLib/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.src-Debug-77c6569ca9a1eb4e839e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/src",
+					"targetIndexes" : 
+					[
+						0,
+						13
+					]
+				},
+				{
+					"build" : "third_party/GeographicLib/include/GeographicLib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.include.GeographicLib-Debug-0b51801ccf5e44cd2c38.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/include/GeographicLib"
+				},
+				{
+					"build" : "third_party/GeographicLib/tools",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.tools-Debug-176cb0b55d655560e722.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/tools",
+					"targetIndexes" : 
+					[
+						16,
+						20
+					]
+				},
+				{
+					"build" : "third_party/GeographicLib/man",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.man-Debug-1a70e9b74489a7e70a9c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/man"
+				},
+				{
+					"build" : "third_party/GeographicLib/doc",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.doc-Debug-273939b84c99829cd83b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/doc"
+				},
+				{
+					"build" : "third_party/GeographicLib/examples",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.examples-Debug-2ee64064b77ed0080556.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/examples"
+				},
+				{
+					"build" : "third_party/GeographicLib/cmake",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.GeographicLib.cmake-Debug-43682f7c440c42852c6e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/cmake"
+				},
+				{
+					"build" : "third_party/GeographicLib/tests",
+					"jsonFile" : "directory-third_party.GeographicLib.tests-Debug-ff0149cbd4c2ccdd54e9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/tests",
+					"targetIndexes" : 
+					[
+						7,
+						12,
+						14,
+						17,
+						19
+					]
+				},
+				{
+					"build" : "third_party/GeographicLib/experimental",
+					"jsonFile" : "directory-third_party.GeographicLib.experimental-Debug-a98f6bc732c617437469.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.0"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "third_party/GeographicLib/experimental",
+					"targetIndexes" : 
+					[
+						1,
+						6
+					]
+				},
+				{
+					"build" : "third_party/eigen",
+					"childIndexes" : 
+					[
+						16,
+						17,
+						18,
+						21,
+						22
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.eigen-Debug-7f8c1e52cb994bb85756.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "third_party/eigen",
+					"targetIndexes" : 
+					[
+						21
+					]
+				},
+				{
+					"build" : "third_party/eigen/blas",
+					"jsonFile" : "directory-third_party.eigen.blas-Debug-f7734f67af2217048f1c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 15,
+					"projectIndex" : 3,
+					"source" : "third_party/eigen/blas"
+				},
+				{
+					"build" : "third_party/eigen/lapack",
+					"jsonFile" : "directory-third_party.eigen.lapack-Debug-facc574fa24bdcaeedab.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 15,
+					"projectIndex" : 4,
+					"source" : "third_party/eigen/lapack"
+				},
+				{
+					"build" : "third_party/eigen/unsupported",
+					"childIndexes" : 
+					[
+						19
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.eigen.unsupported-Debug-255288f4e9be53597e5b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 15,
+					"projectIndex" : 2,
+					"source" : "third_party/eigen/unsupported"
+				},
+				{
+					"build" : "third_party/eigen/unsupported/Eigen",
+					"childIndexes" : 
+					[
+						20
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.eigen.unsupported.Eigen-Debug-dd758faf5f7cd076c9de.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 18,
+					"projectIndex" : 2,
+					"source" : "third_party/eigen/unsupported/Eigen"
+				},
+				{
+					"build" : "third_party/eigen/unsupported/Eigen/CXX11",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.eigen.unsupported.Eigen.CXX11-Debug-33769b06d56c95265288.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 19,
+					"projectIndex" : 2,
+					"source" : "third_party/eigen/unsupported/Eigen/CXX11"
+				},
+				{
+					"build" : "third_party/eigen/demos",
+					"jsonFile" : "directory-third_party.eigen.demos-Debug-51eb3af764230b78d831.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 15,
+					"projectIndex" : 5,
+					"source" : "third_party/eigen/demos",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "third_party/eigen/scripts",
+					"jsonFile" : "directory-third_party.eigen.scripts-Debug-51c64de2bcb55a77819e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 15,
+					"projectIndex" : 2,
+					"source" : "third_party/eigen/scripts"
+				},
+				{
+					"build" : "third_party/googletest",
+					"childIndexes" : 
+					[
+						24
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.googletest-Debug-45e4f991cbd674b39ade.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 6,
+					"source" : "third_party/googletest"
+				},
+				{
+					"build" : "third_party/googletest/googlemock",
+					"childIndexes" : 
+					[
+						25
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.googletest.googlemock-Debug-f97eb67374d488dc05a5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 23,
+					"projectIndex" : 7,
+					"source" : "third_party/googletest/googlemock",
+					"targetIndexes" : 
+					[
+						8,
+						9
+					]
+				},
+				{
+					"build" : "third_party/googletest/googletest",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.googletest.googletest-Debug-163bc8549e05f31f18cc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 24,
+					"projectIndex" : 8,
+					"source" : "third_party/googletest/googletest",
+					"targetIndexes" : 
+					[
+						10,
+						11
+					]
+				},
+				{
+					"build" : "tests",
+					"jsonFile" : "directory-tests-Debug-b01f6abb0ab61427ef3b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 9,
+					"source" : "tests",
+					"targetIndexes" : 
+					[
+						15
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						6,
+						9
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "ballistics",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						18
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					],
+					"name" : "GeographicLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						5,
+						6,
+						7,
+						12,
+						13,
+						14,
+						16,
+						17,
+						19,
+						20
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						15,
+						18,
+						19,
+						20,
+						22
+					],
+					"name" : "Eigen3",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						21
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						16
+					],
+					"name" : "EigenBlas",
+					"parentIndex" : 2
+				},
+				{
+					"directoryIndexes" : 
+					[
+						17
+					],
+					"name" : "EigenLapack",
+					"parentIndex" : 2
+				},
+				{
+					"directoryIndexes" : 
+					[
+						21
+					],
+					"name" : "EigenDemos",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						7
+					],
+					"directoryIndexes" : 
+					[
+						23
+					],
+					"name" : "googletest-distribution",
+					"parentIndex" : 0
+				},
+				{
+					"childIndexes" : 
+					[
+						8
+					],
+					"directoryIndexes" : 
+					[
+						24
+					],
+					"name" : "gmock",
+					"parentIndex" : 6,
+					"targetIndexes" : 
+					[
+						8,
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						25
+					],
+					"name" : "gtest",
+					"parentIndex" : 7,
+					"targetIndexes" : 
+					[
+						10,
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						26
+					],
+					"name" : "test_ballistics",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 6,
+					"id" : "GeographicLib_SHARED::@8f218b592da01ec2865b",
+					"jsonFile" : "target-GeographicLib_SHARED-Debug-279c2da8bd9c5882a391.json",
+					"name" : "GeographicLib_SHARED",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 14,
+					"id" : "JacobiConformal::@242de73d53d4909f7fd0",
+					"jsonFile" : "target-JacobiConformal-Debug-80435b120cc98306fc4a.json",
+					"name" : "JacobiConformal",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ballistics::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ballistics-Debug-b73a889b9d1376d303df.json",
+					"name" : "ballistics",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "calceph::@d65c410e179e04547858",
+					"jsonFile" : "target-calceph-Debug-9d09b50fbf7847ce1c67.json",
+					"name" : "calceph",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 21,
+					"id" : "demos::@df3dd46d7cd1ea82f35c",
+					"jsonFile" : "target-demos-Debug-3f0cf5beedcd6db20964.json",
+					"name" : "demos",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "exampleprograms::@24e426e8466338e46a24",
+					"jsonFile" : "target-exampleprograms-Debug-efc81648a299eec51066.json",
+					"name" : "exampleprograms",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 14,
+					"id" : "experimental::@242de73d53d4909f7fd0",
+					"jsonFile" : "target-experimental-Debug-a7121374d571ba04b39d.json",
+					"name" : "experimental",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "geodtest::@234f3584291e5d427383",
+					"jsonFile" : "target-geodtest-Debug-37578ed0e6a63ec6682b.json",
+					"name" : "geodtest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 24,
+					"id" : "gmock::@1fd7ba4b7f21464e3d50",
+					"jsonFile" : "target-gmock-Debug-ab852cad46d27bb805fa.json",
+					"name" : "gmock",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 24,
+					"id" : "gmock_main::@1fd7ba4b7f21464e3d50",
+					"jsonFile" : "target-gmock_main-Debug-83b798ed0502eea31855.json",
+					"name" : "gmock_main",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 25,
+					"id" : "gtest::@90013eb1b481ea580f52",
+					"jsonFile" : "target-gtest-Debug-40c4a33d9801319b4d30.json",
+					"name" : "gtest",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 25,
+					"id" : "gtest_main::@90013eb1b481ea580f52",
+					"jsonFile" : "target-gtest_main-Debug-05fc4271ee570d6152eb.json",
+					"name" : "gtest_main",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "intersecttest::@234f3584291e5d427383",
+					"jsonFile" : "target-intersecttest-Debug-bb4629408a86aa327058.json",
+					"name" : "intersecttest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "libs::@8f218b592da01ec2865b",
+					"jsonFile" : "target-libs-Debug-a3d7f2039179de3a44bc.json",
+					"name" : "libs",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "polygontest::@234f3584291e5d427383",
+					"jsonFile" : "target-polygontest-Debug-9c4c894993437479e0af.json",
+					"name" : "polygontest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 26,
+					"id" : "run_test_time::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-run_test_time-Debug-f098f1c58c154898258a.json",
+					"name" : "run_test_time",
+					"projectIndex" : 9
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "scripts::@b6dc3c035b4ff8a28aad",
+					"jsonFile" : "target-scripts-Debug-dae2fd1d25b4a813aeb1.json",
+					"name" : "scripts",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "signtest::@234f3584291e5d427383",
+					"jsonFile" : "target-signtest-Debug-d188aa7279c208680476.json",
+					"name" : "signtest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "sofa::@af038379e0a457252391",
+					"jsonFile" : "target-sofa-Debug-946544592e2f509cbb86.json",
+					"name" : "sofa",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "testprograms::@234f3584291e5d427383",
+					"jsonFile" : "target-testprograms-Debug-a798a3e918ba77314b92.json",
+					"name" : "testprograms",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "tools::@b6dc3c035b4ff8a28aad",
+					"jsonFile" : "target-tools-Debug-e0a4b950a737e3a93e4e.json",
+					"name" : "tools",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 15,
+					"id" : "uninstall::@eab0930a3f6cf5252a25",
+					"jsonFile" : "target-uninstall-Debug-4c0dbe80099bcf63c881.json",
+					"name" : "uninstall",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/bennington2000super/Documents/5 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u0411\u0430\u043b\u043b\u0438\u0441\u0442\u0438\u043a\u0430/my_lib/cmake-build-debug",
+		"source" : "/Users/bennington2000super/Documents/5 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u0411\u0430\u043b\u043b\u0438\u0441\u0442\u0438\u043a\u0430/my_lib"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

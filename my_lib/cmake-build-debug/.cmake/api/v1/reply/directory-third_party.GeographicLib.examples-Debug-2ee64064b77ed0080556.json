@@ -1,0 +1,94 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"third_party/GeographicLib/examples/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 80,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "share/doc/GeographicLib-dev",
+			"paths" : 
+			[
+				"third_party/GeographicLib/examples/CMakeLists.txt",
+				"third_party/GeographicLib/examples/example-Accumulator.cpp",
+				"third_party/GeographicLib/examples/example-AlbersEqualArea.cpp",
+				"third_party/GeographicLib/examples/example-AuxAngle.cpp",
+				"third_party/GeographicLib/examples/example-AuxLatitude.cpp",
+				"third_party/GeographicLib/examples/example-AzimuthalEquidistant.cpp",
+				"third_party/GeographicLib/examples/example-CassiniSoldner.cpp",
+				"third_party/GeographicLib/examples/example-CircularEngine.cpp",
+				"third_party/GeographicLib/examples/example-Constants.cpp",
+				"third_party/GeographicLib/examples/example-DMS.cpp",
+				"third_party/GeographicLib/examples/example-DST.cpp",
+				"third_party/GeographicLib/examples/example-Ellipsoid.cpp",
+				"third_party/GeographicLib/examples/example-EllipticFunction.cpp",
+				"third_party/GeographicLib/examples/example-GARS.cpp",
+				"third_party/GeographicLib/examples/example-GeoCoords.cpp",
+				"third_party/GeographicLib/examples/example-Geocentric.cpp",
+				"third_party/GeographicLib/examples/example-Geodesic.cpp",
+				"third_party/GeographicLib/examples/example-Geodesic-small.cpp",
+				"third_party/GeographicLib/examples/example-GeodesicExact.cpp",
+				"third_party/GeographicLib/examples/example-GeodesicLine.cpp",
+				"third_party/GeographicLib/examples/example-GeodesicLineExact.cpp",
+				"third_party/GeographicLib/examples/example-GeographicErr.cpp",
+				"third_party/GeographicLib/examples/example-Geohash.cpp",
+				"third_party/GeographicLib/examples/example-Geoid.cpp",
+				"third_party/GeographicLib/examples/example-Georef.cpp",
+				"third_party/GeographicLib/examples/example-Gnomonic.cpp",
+				"third_party/GeographicLib/examples/example-GravityCircle.cpp",
+				"third_party/GeographicLib/examples/example-GravityModel.cpp",
+				"third_party/GeographicLib/examples/example-Intersect.cpp",
+				"third_party/GeographicLib/examples/example-LambertConformalConic.cpp",
+				"third_party/GeographicLib/examples/example-LocalCartesian.cpp",
+				"third_party/GeographicLib/examples/example-MGRS.cpp",
+				"third_party/GeographicLib/examples/example-MagneticCircle.cpp",
+				"third_party/GeographicLib/examples/example-MagneticModel.cpp",
+				"third_party/GeographicLib/examples/example-Math.cpp",
+				"third_party/GeographicLib/examples/example-NearestNeighbor.cpp",
+				"third_party/GeographicLib/examples/example-NormalGravity.cpp",
+				"third_party/GeographicLib/examples/example-OSGB.cpp",
+				"third_party/GeographicLib/examples/example-PolarStereographic.cpp",
+				"third_party/GeographicLib/examples/example-PolygonArea.cpp",
+				"third_party/GeographicLib/examples/example-Rhumb.cpp",
+				"third_party/GeographicLib/examples/example-RhumbLine.cpp",
+				"third_party/GeographicLib/examples/example-SphericalEngine.cpp",
+				"third_party/GeographicLib/examples/example-SphericalHarmonic.cpp",
+				"third_party/GeographicLib/examples/example-SphericalHarmonic1.cpp",
+				"third_party/GeographicLib/examples/example-SphericalHarmonic2.cpp",
+				"third_party/GeographicLib/examples/example-TransverseMercator.cpp",
+				"third_party/GeographicLib/examples/example-TransverseMercatorExact.cpp",
+				"third_party/GeographicLib/examples/example-UTMUPS.cpp",
+				"third_party/GeographicLib/examples/example-Utility.cpp",
+				"third_party/GeographicLib/examples/GeoidToGTX.cpp",
+				"third_party/GeographicLib/examples/make-egmcof.cpp"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "third_party/GeographicLib/examples",
+		"source" : "third_party/GeographicLib/examples"
+	}
+}

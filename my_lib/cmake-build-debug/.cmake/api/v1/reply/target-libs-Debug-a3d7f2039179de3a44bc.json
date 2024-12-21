@@ -1,0 +1,49 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"third_party/GeographicLib/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 3,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 103,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "GeographicLib_SHARED::@8f218b592da01ec2865b"
+		}
+	],
+	"id" : "libs::@8f218b592da01ec2865b",
+	"name" : "libs",
+	"paths" : 
+	{
+		"build" : "third_party/GeographicLib/src",
+		"source" : "third_party/GeographicLib/src"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

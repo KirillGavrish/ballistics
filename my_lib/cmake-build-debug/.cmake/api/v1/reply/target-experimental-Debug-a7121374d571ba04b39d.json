@@ -1,0 +1,53 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"third_party/GeographicLib/experimental/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "JacobiConformal::@242de73d53d4909f7fd0"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "experimental"
+	},
+	"id" : "experimental::@242de73d53d4909f7fd0",
+	"name" : "experimental",
+	"paths" : 
+	{
+		"build" : "third_party/GeographicLib/experimental",
+		"source" : "third_party/GeographicLib/experimental"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

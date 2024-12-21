@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.20)
+
+if (NOT TARGET calceph)
+    add_subdirectory(calceph)
+endif ()
+
+if (NOT TARGET sofa)
+add_subdirectory(sofa)
+endif ()
+
+if (NOT TARGET GeographicLib)
+    add_subdirectory(GeographicLib)
+endif ()
+
+if (NOT TARGET eigen)
+    set(EIGEN_BUILD_DOC OFF)
+    set(EIGEN_BUILD_TESTING OFF)
+    set(EIGEN_LEAVE_TEST_IN_ALL_TARGET OFF)
+    set(EIGEN_BUILD_BTL OFF)
+    set(EIGEN_BUILD_SPBENCH OFF)
+    add_subdirectory(eigen EXCLUDE_FROM_ALL)
+endif ()
+
+if (NOT TARGET eigen)
+    set(EIGEN_BUILD_DOC OFF)
+    set(EIGEN_BUILD_TESTING OFF)
+    set(EIGEN_LEAVE_TEST_IN_ALL_TARGET OFF)
+    set(EIGEN_BUILD_BTL OFF)
+    set(EIGEN_BUILD_SPBENCH OFF)
+    add_subdirectory(eigen EXCLUDE_FROM_ALL)
+endif ()
+if (NOT TARGET gtest)
+    add_subdirectory(googletest)
+endif ()
+

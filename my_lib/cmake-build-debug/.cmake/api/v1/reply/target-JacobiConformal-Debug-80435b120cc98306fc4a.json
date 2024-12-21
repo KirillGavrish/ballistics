@@ -1,0 +1,159 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "third_party/GeographicLib/experimental/JacobiConformal"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"add_definitions"
+		],
+		"files" : 
+		[
+			"third_party/GeographicLib/experimental/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -Wall -Wextra -Wfloat-conversion -g -std=c++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fdiagnostics-color=always"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "GEOGRAPHICLIB_SHARED_LIB=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/bennington2000super/Documents/5 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u0411\u0430\u043b\u043b\u0438\u0441\u0442\u0438\u043a\u0430/my_lib/cmake-build-debug/third_party/GeographicLib/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/bennington2000super/Documents/5 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u0411\u0430\u043b\u043b\u0438\u0441\u0442\u0438\u043a\u0430/my_lib/third_party/GeographicLib/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "GeographicLib_SHARED::@8f218b592da01ec2865b"
+		}
+	],
+	"id" : "JacobiConformal::@242de73d53d4909f7fd0",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-Wall -Wextra -Wfloat-conversion -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,\"/Users/bennington2000super/Documents/5 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u0411\u0430\u043b\u043b\u0438\u0441\u0442\u0438\u043a\u0430/my_lib/cmake-build-debug/third_party/GeographicLib/src\"",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "third_party/GeographicLib/src/libGeographicLib.26.1.0.dylib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "JacobiConformal",
+	"nameOnDisk" : "JacobiConformal",
+	"paths" : 
+	{
+		"build" : "third_party/GeographicLib/experimental",
+		"source" : "third_party/GeographicLib/experimental"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/GeographicLib/experimental/JacobiConformal.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "third_party/GeographicLib/experimental/JacobiConformal.hpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}
