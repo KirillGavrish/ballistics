@@ -30,9 +30,9 @@ TEST(parseEOP, TEST_READ)
 TEST(TimeConverter, CONVERT)
 {
     auto const eopContainer = parseEOP(resourcesPath() / "eopc04_extended.dat");
-    auto const utc = Time<Scale::TCG>{2449718, 0.5};
+    auto const utc = Time<Scale::UTC>{2449718, 0.5};
     auto const converter = TimeConverter(eopContainer);
-    auto const ut1 = converter.convert<Scale::UTC>(utc);
+    auto const ut1 = converter.convert<Scale::UT1>(utc);
     ASSERT_EQ(ut1.jDay() + ut1.jDayPart() - (utc.jDay() + utc.jDayPart()), eopContainer.dut(utc.mjDay()));
 }
 

@@ -1,4 +1,4 @@
-file(GLOB_RECURSE SOURCES Ballistics/*.h Ballistics/*.c Ballistics/*.hpp Ballistics/*.cpp)
+file(GLOB_RECURSE SOURCES ballistics/*.h ballistics/*.c ballistics/*.hpp ballistics/*.cpp)
 add_library(${PROJECT_NAME} STATIC ${SOURCES})
 message(${SOURCES})
 target_link_libraries(${PROJECT_NAME} PUBLIC eigen sofa GeographicLib calceph)

@@ -76,7 +76,7 @@ EOPContainer parseEOP(std::ifstream const &ephFile)
 {
     std::string const stream = readFile(ephFile);
     auto const optDataStart = parseBeforeString(stream, "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-    if (!optDataStart || optDataStart->tail.size() == 0) {
+    if (!optDataStart || optDataStart->tail.empty()) {
         throw BallisticsException("Cannot find beginning of the data! ---... should be");
     }
     auto const optV = parseVector(optDataStart->tail, parseDouble);
@@ -93,7 +93,7 @@ EOPContainer parseEOP(std::ifstream const &ephFile)
         fieldEOP[4].push_back(optV->value[line * 16 + 8]);
         fieldEOP[5].push_back(optV->value[line * 16 + 9]);
     }
-    return EOPContainer(fieldEOP[0], fieldEOP[1], fieldEOP[2], fieldEOP[3], fieldEOP[4], fieldEOP[5]);
+    return {fieldEOP[0], fieldEOP[1], fieldEOP[2], fieldEOP[3], fieldEOP[4], fieldEOP[5]};
 }
 
 EOPContainer parseEOP(std::filesystem::path const &path)

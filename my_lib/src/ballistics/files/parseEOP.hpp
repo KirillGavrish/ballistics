@@ -2,7 +2,7 @@
 #define PARSEEOP_HPP
 
 #include <filesystem>
-#include "ballistics/EOP/EOPContainer.hpp"
+#include "ballistics/eop/EOPContainer.hpp"
 
 [[nodiscard]] EOPContainer parseEOP(std::filesystem::path const &path);
 
