@@ -68,7 +68,7 @@ public:
                 }
                 return tmp;
             };
-            auto RMS = [this, &b]() -> Eigen::Matrix<double, State::size(), 1>
+            auto RMS = [this, &b]() -> double
             {
                 auto tmp = Eigen::Matrix<double, State::size(), 1>::Zeros();
                 for (std::size_t n = 0; n < N(); ++n) {
