@@ -2,6 +2,7 @@
 #include <optional>
 #include <fstream>
 #include <vector>
+#include <cstdint>
 #include "parseEOP.hpp"
 #include "ballistics/exceptions/BallisticsException.hpp"
 
@@ -72,9 +73,9 @@ std::string readFile(std::ifstream const &in)
     return ss.str();
 }
 
-EOPContainer parseEOP(std::ifstream const &ephFile)
+EOPContainer parseEOP(std::ifstream const &eopFile)
 {
-    std::string const stream = readFile(ephFile);
+    std::string const stream = readFile(eopFile);
     auto const optDataStart = parseBeforeString(stream, "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     if (!optDataStart || optDataStart->tail.empty()) {
         throw BallisticsException("Cannot find beginning of the data! ---... should be");
@@ -93,7 +94,7 @@ EOPContainer parseEOP(std::ifstream const &ephFile)
         fieldEOP[4].push_back(optV->value[line * 16 + 8]);
         fieldEOP[5].push_back(optV->value[line * 16 + 9]);
     }
-    return {fieldEOP[0], fieldEOP[1], fieldEOP[2], fieldEOP[3], fieldEOP[4], fieldEOP[5]};
+    return EOPContainer{fieldEOP[0], fieldEOP[1], fieldEOP[2], fieldEOP[3], fieldEOP[4], fieldEOP[5]};
 }
 
 EOPContainer parseEOP(std::filesystem::path const &path)

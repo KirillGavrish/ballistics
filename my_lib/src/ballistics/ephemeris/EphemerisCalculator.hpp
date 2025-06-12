@@ -2,12 +2,12 @@
 #define EPHEMERISCALCULATOR_HPP
 
 #include "calceph.h"
-#include "Eigen/Dense"
 #include "ballistics/exceptions/BallisticsException.hpp"
 #include "ballistics/time/Time.hpp"
 #include "ballistics/types/Vector.hpp"
 
-enum class CelestialBodies {
+enum class CelestialBodies
+{
     MERCURY = 1,
     VENUS = 2,
     EARTH = 3,
@@ -35,11 +35,12 @@ public:
             throw BallisticsException("Can't open ephemeris file!");
         }
     }
-    ~EphemerisCalculator(){
-        calceph_close(calceph);
-    }
+    ~EphemerisCalculator() { calceph_close(calceph); }
+
     [[nodiscard]] Vector3d calcPosition(TDB, CelestialBodies origin, CelestialBodies body) const;
     [[nodiscard]] Vector6d calcState(TDB, CelestialBodies origin, CelestialBodies body) const;
+    [[nodiscard]] double au() const;
+    [[nodiscard]] double clight() const;
 };
 
 #endif //EPHEMERISCALCULATOR_HPP

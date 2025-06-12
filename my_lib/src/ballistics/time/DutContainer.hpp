@@ -2,7 +2,7 @@
 #define DUTCONTAINER_HPP
 
 #include <vector>
-#include "ballistics/eop/EOPContainer.hpp"
+#include "ballistics/conversions/EOPContainer.hpp"
 
 class DutContainer
 {

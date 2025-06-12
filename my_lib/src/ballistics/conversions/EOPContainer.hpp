@@ -1,7 +1,7 @@
 #ifndef EOPCONTAINER_HPP
 #define EOPCONTAINER_HPP
 
-#include <vector>
+#include "ballistics/types/Vector.hpp"
 
 class EOPContainer
 {
@@ -12,14 +12,15 @@ class EOPContainer
     std::vector<double> dX_;
     std::vector<double> dY_;
 public:
-    EOPContainer(
-        std::vector<double> const &,
-        std::vector<double> const &,
-        std::vector<double> const &,
-        std::vector<double> const &,
-        std::vector<double> const &,
-        std::vector<double> const &
-        );
+    EOPContainer(std::vector<double> const &mjDays,
+                 std::vector<double> const &duts,
+                 std::vector<double> const &x,
+                 std::vector<double> const &y,
+                 std::vector<double> const &dX,
+                 std::vector<double> const &dY)
+                     : mjDays_(mjDays), duts_(duts), x_(x), y_(y), dX_(dX), dY_(dY)
+    {}
+
     [[nodiscard]] std::vector<double> mjDays() const;
     [[nodiscard]] std::vector<double> duts() const;
 

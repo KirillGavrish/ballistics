@@ -30,7 +30,6 @@ Interpolant<xType, yType>::Interpolant(std::vector<xType> const &nodes, std::vec
 
 template<typename xType, typename yType>
 yType Interpolant<xType, yType>::evaluate(xType x) const {
-    std::cout << x - nodes_[0];
     if (x < nodes_[0] || x > nodes_[nodes_.size() - 1])
         throw BallisticsException(" Requested point is out of data to Interpolant");
 
@@ -39,7 +38,7 @@ yType Interpolant<xType, yType>::evaluate(xType x) const {
 
     const auto [a,b, value_a, value_b] = index != 0
         ? std::tuple{nodes_[index - 1], *iterator, values_[index - 1], values_[index]}
-    : std::tuple{nodes_[0], nodes_[1], values_[0], values_[1]};
+        : std::tuple{nodes_[0], nodes_[1], values_[0], values_[1]};
 
     double k = (value_b - value_a) / (b - a);
     return k * (x - a) + value_a;

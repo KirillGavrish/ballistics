@@ -23,46 +23,39 @@ public:
     template <Scale ScaleTo, Scale ScaleFrom>
     [[nodiscard]] Time<ScaleTo> convert(Time<ScaleFrom> const &) const;
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::UT1> static convert(UTC const &t)
+    template <> [[nodiscard]] UT1 convert<Scale::UT1, Scale::UTC>(UTC const &t) const
     {
         double jDay, jDayPart;
         int const sofaError = static_cast<int>(iauUtcut1(t.jDay(),t.jDayPart(), dut(t.mjDay()), &jDay, &jDayPart));
-
         if (sofaError == -1) {
             throw BallisticsException("Sofa Error! Unable to convert UTC to UT1!");
         }
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::UTC> convert(UT1 const &t) const
+    template <> [[nodiscard]] UTC convert<Scale::UTC, Scale::UT1>(UT1 const &t) const
     {
         UTC const utcTmp{t.jDay(), t.jDayPart()};
         double const Dut = dut(utcTmp + (- dutContainer_.dut(utcTmp.mjDay()))/86400);
         double jDay, jDayPart;
         int const sofaError = static_cast<int>(iauUt1utc(t.jDay(),t.jDayPart(), Dut, &jDay, &jDayPart));
-
         if (sofaError == -1) {
             throw BallisticsException("Sofa Error! Unable to convert UT1 to UTC!");
         }
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TDB> static convert(TCB const &t)
+    template <> [[nodiscard]] TDB convert<Scale::TDB, Scale::TCB>(TCB const &t) const
     {
         double jDay, jDayPart;
         int const sofaError = static_cast<int>(iauTcbtdb(t.jDay(),t.jDayPart(), &jDay, &jDayPart));
-
         if (sofaError == -1) {
             throw BallisticsException("Sofa Error! Unable to convert TCB to TDB!");
         }
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TAI> static convert(UTC const &t)
+    template <> [[nodiscard]] TAI convert<Scale::TAI, Scale::UTC>(UTC const &t) const
     {
         double jDay, jDayPart;
         int const sofaError = static_cast<int>(iauUtctai(t.jDay(),t.jDayPart(), &jDay, &jDayPart));
@@ -73,8 +66,7 @@ public:
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TT> static convert(TAI const &t)
+    template <> [[nodiscard]] TT convert<Scale::TT, Scale::TAI>(TAI const &t) const
     {
         double jDay, jDayPart;
         int const sofaError = static_cast<int>(iauTaitt(t.jDay(),t.jDayPart(), &jDay, &jDayPart));
@@ -84,13 +76,11 @@ public:
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TT> static convert(UTC const &t)  {
+    template <> [[nodiscard]] TT convert<Scale::TT, Scale::UTC>(UTC const &t) const {
         return convert<Scale::TT>(convert<Scale::TAI>(t));
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TDB> static convert(TT const &t)
+    template <> [[nodiscard]] TDB convert<Scale::TDB, Scale::TT>(TT const &t) const
     {
         double jDay, jDayPart;
         double const dtr = 0.001657*std::sin(6.24 + 0.017202 * (t.jDay() + t.jDayPart()) - 2451545);
@@ -102,8 +92,7 @@ public:
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TT> static convert(TDB const &t)
+    template <> [[nodiscard]] TT convert<Scale::TT, Scale::TDB>(TDB const &t) const
     {
         double jDay, jDayPart;
         double const dtr = 0.001657*std::sin(6.24 + 0.017202 * (t.jDay() + t.jDayPart()) - 2451545);
@@ -114,8 +103,8 @@ public:
         }
         return {jDay, jDayPart};
     }
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TT> static convert(TCG const &t)
+
+    template <> [[nodiscard]] TT convert<Scale::TT, Scale::TCG>(TCG const &t) const
     {
         double jDay, jDayPart;
 
@@ -125,8 +114,8 @@ public:
         }
         return {jDay, jDayPart};
     }
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::TAI> static convert(TT const &t)
+
+    template <> [[nodiscard]] TAI convert<Scale::TAI, Scale::TT>(TT const &t) const
     {
         double jDay, jDayPart;
 
@@ -137,8 +126,7 @@ public:
         return {jDay, jDayPart};
     }
 
-    template <typename, typename>
-     [[nodiscard]] Time<Scale::UTC> static convert(TAI const &t)
+    template <> [[nodiscard]] UTC convert<Scale::UTC, Scale::TAI>(TAI const &t) const
     {
         double jDay, jDayPart;
 
@@ -148,15 +136,15 @@ public:
         }
         return {jDay, jDayPart};
     }
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::UTC> static convert(TT const &t)  {
+
+    template <> [[nodiscard]] UTC convert<Scale::UTC, Scale::TT>(TT const &t) const {
         return convert<Scale::UTC>(convert<Scale::TAI>(t));
     }
-    template <typename, typename>
-    [[nodiscard]] Time<Scale::UTC> static convert(TCG const &t)  {
+
+    template <> [[nodiscard]] UTC convert<Scale::UTC, Scale::TCG>(TCG const &t) const {
         return convert<Scale::UTC>(convert<Scale::TT>(t));
     }
-}; // TimeCoverter
+};
 
 template<typename DutContainer>
 TimeConverter<DutContainer>::TimeConverter(DutContainer const &dutContainer)
@@ -165,5 +153,6 @@ TimeConverter<DutContainer>::TimeConverter(DutContainer const &dutContainer)
 
 template <typename DutContainer>
 double TimeConverter<DutContainer>::dut(UTC const &mjDay) const {return dutContainer_.dut(mjDay);};
+
 
 #endif //TIMECONVERTER_HPP

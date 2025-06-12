@@ -22,7 +22,7 @@ double Time<scale>::jDay() const {return jDay_;};
 template <Scale scale>
 double Time<scale>::jDayPart() const {return jDayPart_;};
 template<Scale scale>
-double Time<scale>::mjDay() const {return jDay_ + jDayPart_ - 2400000.5;};
+double Time<scale>::mjDay() const {return (jDay_- 2400000.5) + jDayPart_ ;};
 
 template <Scale scale>
 Time<scale>::Time(double const jDay, double const jDayPart) noexcept

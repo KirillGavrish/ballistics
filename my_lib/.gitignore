@@ -1,2 +1,4 @@
 cmake-build-debug/
 cmake
+src/ballistics/.DS_Store
+../.idea/

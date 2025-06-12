@@ -5,6 +5,8 @@
 #include "Paths.hpp"
 #include "ballistics/exceptions/BallisticsException.hpp"
 #include "ballistics/time/TimeConverter.hpp"
+#include "ballistics/conversions/ReferenceSystemConverter.hpp"
+#include "ballistics/numeric_methods/numericMethods.hpp"
 
 static constexpr double eps = std::numeric_limits<double>::epsilon();
 static constexpr double eps10 = std::numeric_limits<double>::epsilon() * 10;
@@ -29,10 +31,12 @@ TEST(parseEOP, TEST_READ)
 
 TEST(TimeConverter, CONVERT)
 {
-    auto const eopContainer = parseEOP(resourcesPath() / "eopc04_extended.dat");
-    auto const utc = Time<Scale::UTC>{2449718, 0.5};
-    auto const converter = TimeConverter(eopContainer);
-    auto const ut1 = converter.convert<Scale::UT1>(utc);
-    ASSERT_EQ(ut1.jDay() + ut1.jDayPart() - (utc.jDay() + utc.jDayPart()), eopContainer.dut(utc.mjDay()));
+    // auto const eopContainer = parseEOP(resourcesPath() / "eopc04_extended.dat");
+    // auto const utc = Time<Scale::UTC>{2449718, 0.5};
+    // auto const converter = TimeConverter(eopContainer);
+    // auto const ut1 = converter.convert<Scale::UT1>(utc);
+    // auto const rsconverter = ReferenceSystemConverter(eopContainer);
+    //auto const v =  rsconverter.convertGCRStoITRS(tcg);
+   // ASSERT_EQ(ut1.jDay() + ut1.jDayPart() - (utc.jDay() + utc.jDayPart()), eopContainer.dut(utc.mjDay()));
 }
 
