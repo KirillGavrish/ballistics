@@ -27,8 +27,7 @@ public:
 
 template <typename SatelliteParameters>
 template <typename Parameters>
-Vector3d CentralForce<SatelliteParameters>::calcForce(State const &state,
-                                                      SatelliteParameters const &satelliteParameters,
+Vector3d CentralForce<SatelliteParameters>::calcForce(State const &state, SatelliteParameters const &satelliteParameters,
                                                       Parameters const &parameters) const
 {
     Vector3d const positionEcef = parameters.quaternionGcrsToEcef * state.position;
