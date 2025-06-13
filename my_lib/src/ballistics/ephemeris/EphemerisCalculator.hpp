@@ -4,7 +4,7 @@
 #include "calceph.h"
 #include "ballistics/exceptions/BallisticsException.hpp"
 #include "ballistics/time/Time.hpp"
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 
 enum class CelestialBodies
 {

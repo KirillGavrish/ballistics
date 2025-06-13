@@ -2,7 +2,7 @@
 #define ATMOSPHERICFRICTION_HPP
 
 #include <vector>
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 #include "ballistics/exceptions/BallisticsException.hpp"
 #include "ballistics/interpolation/Interpolant.hpp"
 

@@ -1,7 +1,7 @@
 #ifndef SOLARRADIATIONPRESSURE_HPP
 #define SOLARRADIATIONPRESSURE_HPP
 
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 #include "ballistics/time/Time.hpp"
 #include "ballistics/ephemeris/EphemerisCalculator.hpp"
 

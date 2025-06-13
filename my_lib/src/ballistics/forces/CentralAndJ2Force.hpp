@@ -5,7 +5,7 @@
 #ifndef CENTRALANDJ2FORCE_HPP
 #define CENTRALANDJ2FORCE_HPP
 
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 
 template <typename SatelliteParameters>
 class CentralAndJ2Force

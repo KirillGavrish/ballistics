@@ -2,9 +2,9 @@
 #include "ballistics/interpolation/Interpolant.hpp"
 
 
-std::vector<double> EOPContainer::mjDays() const {return mjDays_;};
+std::vector<double> EOPContainer::mjDays() const {return mjDays_;}
 
-std::vector<double> EOPContainer::duts() const {return duts_;};
+std::vector<double> EOPContainer::duts() const {return duts_;}
 
 double EOPContainer::dut(double const mjDay) const {return Interpolant{mjDays_, duts_}.evaluate(mjDay);}
 

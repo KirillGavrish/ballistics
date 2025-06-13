@@ -5,7 +5,7 @@
 #ifndef COORDINATECONVERTERS_H
 #define COORDINATECONVERTERS_H
 
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 
 struct Cartesian {
     // Класс орбиты в декартовых координатах

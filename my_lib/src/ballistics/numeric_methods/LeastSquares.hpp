@@ -6,7 +6,7 @@
 #define LEASTSQUARES_HPP
 
 #include <limits>
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 #include "ballistics/exceptions/BallisticsException.hpp"
 
 static constexpr double eps = std::numeric_limits<double>::epsilon();
@@ -101,8 +101,6 @@ public:
         }
         throw BallisticsException("The method did not converge!");
     }
-
-
 };
 
 #endif //LEASTSQUARES_HPP

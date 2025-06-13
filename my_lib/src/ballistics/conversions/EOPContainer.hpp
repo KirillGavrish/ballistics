@@ -1,7 +1,7 @@
 #ifndef EOPCONTAINER_HPP
 #define EOPCONTAINER_HPP
 
-#include "ballistics/types/Vector.hpp"
+#include "ballistics/types/Types.hpp"
 
 class EOPContainer
 {

@@ -6,12 +6,9 @@
 #define FORCECALCULATOR_HPP
 
 #include <tuple>
-#include "ballistics/types/Vector.hpp"
-#include "ballistics/time/Time.hpp"
+#include "ballistics/types/Types.hpp"
 
-struct SatelliteParameters {};
-
-template <SatelliteParameters, typename CentralForce, typename ... OtherForces>
+template <typename SatelliteParameters, typename CentralForce, typename ... OtherForces>
 class ForceCalculator
 {
     CentralForce centralForce;
@@ -23,16 +20,17 @@ public:
         : centralForce(centralForce_), otherForces(otherForces_), satelliteParameters(satelliteParameters_)
     {}
 
-    [[nodiscard]] Vector3d calcResultantForce(State const &state)
+    template <typename Parameters>
+    [[nodiscard]] Vector3d calcResultantForce(State const &state, Parameters const &parameters)
     {
-        auto const summator = [&state, this] (auto const &...forces)
+        auto const summator = [&state, this, parameters] (auto const &...forces)
         {
             if constexpr (std::tuple_size_v<std::tuple<OtherForces...>> != 0) {
-                return (forces.calcForce(state, this->satelliteParameters) + ...).eval();
+                return (forces.calcForce(state, this->satelliteParameters, parameters) + ...).eval();
             }
             return Vector3d::Zero();
         };
-        Vector3d const centralForce_{centralForce.calcForce(state, satelliteParameters)};
+        Vector3d const centralForce_{centralForce.calcForce(state, satelliteParameters, parameters)};
         Vector3d const otherForcesResultant{std::apply(summator, otherForces)};
         return (centralForce_ + otherForcesResultant).eval();
     }
