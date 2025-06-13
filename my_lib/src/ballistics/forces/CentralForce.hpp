@@ -31,11 +31,11 @@ Vector3d CentralForce<SatelliteParameters>::calcForce(State const &state,
                                                       SatelliteParameters const &satelliteParameters,
                                                       Parameters const &parameters) const
 {
-    Vector3d const positionEcef = parameters.quaternionEciToEcef * state.position;
+    Vector3d const positionEcef = parameters.quaternionGcrsToEcef * state.position;
     double ax, ay, az;
     gravityModel.V(positionEcef(0), positionEcef(1), positionEcef(2), ax, ay, az);
     auto const aEcef = Vector3d(ax, ay, az);
-    return parameters.quaternionEciToEcef.conjugate() * aEcef * satelliteParameters.mass;
+    return parameters.quaternionGcrsToEcef.conjugate() * aEcef * satelliteParameters.mass;
 }
 
 #endif //CENTRALFORCE_HPP
