@@ -21,7 +21,7 @@ public:
     {}
 
     template <typename Parameters>
-    [[nodiscard]] Vector3d calcResultantForce(State const &state, Parameters const &parameters)
+    [[nodiscard]] Vector3d evaluate(State const &state, Parameters const &parameters)
     {
         auto const summator = [&state, this, parameters] (auto const &...forces)
         {
