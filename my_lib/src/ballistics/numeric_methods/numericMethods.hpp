@@ -50,7 +50,6 @@ public:
         u = u * step + initialVec;
         return u;
     }
-
 };
 
 #endif //NUMERICMETHODS_HPP

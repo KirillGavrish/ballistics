@@ -18,7 +18,6 @@ using Vector6d = Eigen::Matrix<double, 6, 1>;
 struct SatelliteParameters
 {
     double mass;
-    Eigen::Quaterniond quaternionGcrsToEcef;
 
     SatelliteParameters(double const mass_)
         : mass(mass_)

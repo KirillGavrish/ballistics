@@ -10,14 +10,14 @@ class QuaternionConvertion
 public:
     [[nodiscard]] static Eigen::Quaterniond guaternionGcrstoEcef(Time<Scale::TT> const &t)
     {
-        Time<Scale::TT> constexpr j2000 = {2451545, 0};
+        Time<Scale::TT> const j2000 = {2451545, 0};
         double nutationPrecession[3][3];
         double nutation[3][3], precession[3][3];
 
         iauPmat06(j2000.jDay() + j2000.jDayPart(), t.jDay() + t.jDayPart(), precession);
 
         double epsa;
-        iauNut06a(j2000.jDay() + j2000.jDayPart(), t.jDay() + t.jDayPart(), &epsa, nutation);
+        iauNut06a(j2000.jDay() + j2000.jDayPart(), t.jDay() + t.jDayPart(), &epsa, *nutation);
 
         iauRxr(nutation, precession, nutationPrecession);
         double const gast = iauGst06(t.jDay() + t.jDayPart(), 0.0, t.jDay() + t.jDayPart(), 0.0, nutationPrecession);

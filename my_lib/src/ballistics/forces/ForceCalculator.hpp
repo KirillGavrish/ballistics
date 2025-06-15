@@ -8,25 +8,23 @@
 #include <tuple>
 #include "ballistics/types/Types.hpp"
 
-template <typename SatelliteParameters, typename CentralForce, typename ... OtherForces>
+template <typename CentralForce, typename ... OtherForces>
 class ForceCalculator
 {
     CentralForce centralForce;
     std::tuple<OtherForces ...> otherForces;
-    SatelliteParameters satelliteParameters;
 public:
-    ForceCalculator(CentralForce const &centralForce_, OtherForces const &...otherForces_,
-                    SatelliteParameters const &satelliteParameters_)
-        : centralForce(centralForce_), otherForces(otherForces_), satelliteParameters(satelliteParameters_)
+    ForceCalculator(CentralForce const &centralForce_, OtherForces const &...otherForces_)
+        : centralForce(centralForce_), otherForces(otherForces_ ...)
     {}
 
-    template <typename Parameters>
-    [[nodiscard]] Vector3d evaluate(State const &state, Parameters const &parameters)
+    template <typename SatelliteParameters, typename Parameters>
+    [[nodiscard]] Vector3d calcForce(State const &state, SatelliteParameters const &satelliteParameters, Parameters const &parameters) const
     {
-        auto const summator = [&state, this, parameters] (auto const &...forces)
+        auto const summator = [&state, &satelliteParameters, &parameters] (auto const &...forces) -> Vector3d
         {
             if constexpr (std::tuple_size_v<std::tuple<OtherForces...>> != 0) {
-                return (forces.calcForce(state, this->satelliteParameters, parameters) + ...).eval();
+                return (forces.calcForce(state, satelliteParameters, parameters) + ...).eval();
             }
             return Vector3d::Zero();
         };

@@ -5,6 +5,7 @@
 #ifndef CENTRALANDJ2FORCE_HPP
 #define CENTRALANDJ2FORCE_HPP
 
+#include <cmath>
 #include "ballistics/types/Types.hpp"
 
 template <typename SatelliteParameters>
@@ -20,8 +21,8 @@ public:
     {}
 
     [[nodiscard]] double static gravityParameter() {return mu;}
-    [[nodiscard]] Vector3d calcForce(State const &state,
-                                     SatelliteParameters const &satelliteParameters) const;
+    template <typename Parameters>
+    [[nodiscard]] Vector3d calcForce(State const &state, Parameters const &parameters) const;
 };
 
 inline double pow(double x, int const exp)
@@ -30,15 +31,15 @@ inline double pow(double x, int const exp)
     return x;
 }
 
-template<typename SatelliteParameters>
-Vector3d CentralAndJ2Force<SatelliteParameters>::calcForce(State const &state,
-                                                           SatelliteParameters const &satelliteParameters) const
+template <typename SatelliteParameters>
+template <typename Parameters>
+Vector3d CentralAndJ2Force<SatelliteParameters>::calcForce(State const &state, Parameters const &parameters) const
 {
     double const &x = state.position(0);
     double const &y = state.position(1);
     double const &z = state.position(2);
     double const r = state.position.norm();
-    Vector3d const main = -mu / pow(r, 3) * state.position;
+    Vector3d const main = state.position * (-mu / std::pow(r, 3));
     double constexpr alpha = 1.5 * mu * Rev * Rev * J2;
     double const r7 = pow(r, 7);
     Vector3d const corr = {
