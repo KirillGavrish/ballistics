@@ -17,8 +17,8 @@ public:
     using State = State;
     using ArgType = Parameters;
 
-    [[nodiscard]] Vector3d evaluate(State const &state, ArgType const &arg) const {
-        return forceCalculator.calcForce(state, satelliteParameters, arg) / satelliteParameters.mass;
+    [[nodiscard]] State evaluate(State const &state, ArgType const &arg) const {
+        return {state.velocity, forceCalculator.calcForce(state, satelliteParameters, arg) / satelliteParameters.mass};
     }
 
 

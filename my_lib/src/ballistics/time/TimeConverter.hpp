@@ -154,5 +154,4 @@ TimeConverter<DutContainer>::TimeConverter(DutContainer const &dutContainer)
 template <typename DutContainer>
 double TimeConverter<DutContainer>::dut(UTC const &mjDay) const {return dutContainer_.dut(mjDay);};
 
-
 #endif //TIMECONVERTER_HPP

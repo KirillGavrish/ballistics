@@ -6,7 +6,7 @@
 #include "ballistics/exceptions/BallisticsException.hpp"
 #include "ballistics/time/TimeConverter.hpp"
 #include "ballistics/conversions/ReferenceSystemConverter.hpp"
-#include "ballistics/numeric_methods/numericMethods.hpp"
+#include "ballistics/numeric_methods/NumericalMethod.hpp"
 
 static constexpr double eps = std::numeric_limits<double>::epsilon();
 static constexpr double eps10 = std::numeric_limits<double>::epsilon() * 10;
