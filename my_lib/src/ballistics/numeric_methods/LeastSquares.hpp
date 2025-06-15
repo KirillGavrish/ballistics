@@ -95,7 +95,7 @@ public:
             auto const P = calcP();
             State deltaX = P * calcATWb();
             X0 = X0 + deltaX;
-            if (std::sqrt(RMS()) < eps10) {
+            if (std::sqrt(RMS()) < eps1000) {
                 return {X0, P};
             }
         }

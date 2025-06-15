@@ -4,11 +4,6 @@
 #include "ballistics/types/Types.hpp"
 #include "ballistics/conversions/QuaternionConvertion.hpp"
 
-struct Parameters
-{
-    Time<Scale::TT> t;
-};
-
 static constexpr double eps = std::numeric_limits<double>::epsilon();
 static constexpr double eps10 = std::numeric_limits<double>::epsilon() * 10;
 static constexpr double eps1000 = std::numeric_limits<double>::epsilon() * 1000;
@@ -20,6 +15,7 @@ TEST(CentralForce, adequacyISS)
     CentralForce const forceCalculator(resourcesPath() / "CentralForce/");
     State const current  = {{6781000, 0, 0}, {0, 7660, 0}};
     Vector3d const calculated = forceCalculator.calcForce(current, satelliteParameters, parameters);
+    std::cout << calculated.norm() / satelliteParameters.mass << std::endl;
     ASSERT_NEAR(8.68, calculated.norm() / satelliteParameters.mass, 0.01);
 }
 

@@ -24,20 +24,20 @@ class Oscillator
     [[nodiscard]] vec evaluate(ArgType const &, vec const &) const;
 };
 
-template <typename ButcherTable, typename Step>
+template <typename ButcherTable>
 class NumericalMethod
 {
     ButcherTable butcherTable;
 public:
-    template <typename RHS>
+    template <typename RHS, typename Step>
     typename RHS::State makeStep(typename RHS::State const &initialVec, typename RHS::ArgType const &t, Step const &step,
-                               RHS const &rhs)
+                                 RHS const &rhs)
     {
         Eigen::Vector<typename RHS::State, ButcherTable::c.size()> k;
-        k[0] = rhs.evaluate(initialVec);
+        k[0] = rhs.evaluate(initialVec, t);
         for (std::size_t i = 1; i < k.size(); ++i)
         {
-            auto tmp = RHS::State::Zeros();
+            auto tmp = RHS::State::Zero();
             for (std::size_t j = 0; j < i; ++j) {
                 tmp += k[j] * ButcherTable::a[i * ButcherTable::s-1 + j];
             }
