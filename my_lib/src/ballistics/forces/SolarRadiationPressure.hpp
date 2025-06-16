@@ -10,37 +10,36 @@ class СylindricalShadowFunction
     double static constexpr earthRadius = 6378140;
     double static constexpr moonRadius = 1737400;
 public:
-    double static calcShadowFunction(Time<Scale::TDB> const &, Vector3d const &position, Vector3d const &sunPosition,
-                                     Vector3d const &moonPosition);
+    double static calcShadowFunction(Vector3d const &position, Vector3d const &sunPosition, Vector3d const &moonPosition);
 };
 
-template <typename EphemerisCalculator, typename ShadowModel, typename SatelliteParameters>
+template <typename EphemerisCalculator, typename ShadowModel>
 class SolarPressure {
     EphemerisCalculator ephemerisCalculator;
     ShadowModel shadowModel;
-    double TSI;
-    Time<Scale::TDB> tdb;
 public:
-    SolarPressure(ShadowModel const &shadowModel)
-        : shadowModel(shadowModel)
+    SolarPressure(EphemerisCalculator const &ephemerisCalculator_, ShadowModel const &shadowModel)
+        : ephemerisCalculator(ephemerisCalculator_), shadowModel(shadowModel)
     {}
 
-    [[nodiscard]] Vector3d calcForce(State const &state,
-                                     SatelliteParameters const &satelliteParameters) const;
+    template <typename SatelliteParameters, typename Parameters>
+    [[nodiscard]] Vector3d calcForce(State const &state, SatelliteParameters const &satelliteParameters,
+                                     Parameters const &parameters) const;
 };
 
-template <typename EphemerisCalculator, typename ShadowModel, typename SatelliteParameters>
-Vector3d SolarPressure<EphemerisCalculator, ShadowModel, SatelliteParameters>::calcForce(State const &state,
-                                                                                         SatelliteParameters const &satelliteParameters)
-                                                                                         const
+template <typename EphemerisCalculator, typename ShadowModel>
+template <typename SatelliteParameters, typename Parameters>
+Vector3d SolarPressure<EphemerisCalculator, ShadowModel>::calcForce(State const &state,
+                                                                    SatelliteParameters const &satelliteParameters,
+                                                                    Parameters const &parameters) const
 {
-    Vector3d const sunPosition = ephemerisCalculator.calcPosition(tdb, CelestialBodies::EARTH, CelestialBodies::SUN);
-    Vector3d const moonPosition = ephemerisCalculator.calcPosition(tdb, CelestialBodies::EARTH, CelestialBodies::MOON);
+    Vector3d const sunPosition = ephemerisCalculator.calcPosition(parameters.tdb(), CelestialBodies::EARTH, CelestialBodies::SUN);
+    Vector3d const moonPosition = ephemerisCalculator.calcPosition(parameters.tdb(), CelestialBodies::EARTH, CelestialBodies::MOON);
     Vector3d const n = (sunPosition - state.position).normalized();
     double const satelliteSunDistance = (sunPosition - state.position).norm();
     double const AU = ephemerisCalculator.au();
-    return TSI * AU * AU / (satelliteSunDistance * satelliteSunDistance) * n *
-           shadowModel.calcShadowFunction(tdb, state.position, sunPosition, moonPosition)
+    return parameters.TSI * AU * AU / (satelliteSunDistance * satelliteSunDistance) * n *
+           shadowModel.calcShadowFunction(parameters.tdb(), state.position, sunPosition, moonPosition)
            / ephemerisCalculator.clight() * satelliteParameters.Area;
 }
 

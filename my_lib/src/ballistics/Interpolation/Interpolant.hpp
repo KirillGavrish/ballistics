@@ -29,7 +29,8 @@ Interpolant<xType, yType>::Interpolant(std::vector<xType> const &nodes, std::vec
 }
 
 template<typename xType, typename yType>
-yType Interpolant<xType, yType>::evaluate(xType x) const {
+yType Interpolant<xType, yType>::evaluate(xType x) const
+{
     if (x < nodes_[0] || x > nodes_[nodes_.size() - 1])
         throw BallisticsException(" Requested point is out of data to Interpolant");
 

@@ -28,7 +28,7 @@ Vector3d CentralAndJ2Force::calcForce(State const &state, SatelliteParameters co
     double const &y = state.position(1);
     double const &z = state.position(2);
     double const r = state.position.norm();
-    Vector3d const main = state.position * (-mu / std::pow(r, 3));
+    Vector3d const main = (state.position * (-mu / std::pow(r, 3))).eval();
     double constexpr alpha = 1.5 * mu * Rev * Rev * J2;
     double const r7 = std::pow(r, 7);
     Vector3d const corr(-alpha * x * (x * x + y * y - 4 * z * z) / r7,

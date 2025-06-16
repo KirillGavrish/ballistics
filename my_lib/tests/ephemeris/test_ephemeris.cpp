@@ -1,5 +1,6 @@
-#include "gtest.h"
-#include "ballistics/src/ephemeris/EphemerisCalculator.h"
+#include "gtest/gtest.h"
+#include "ballistics/ephemeris/EphemerisCalculator.hpp"
+
 
 TEST(First test, test) {
 

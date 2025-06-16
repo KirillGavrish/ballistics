@@ -20,9 +20,10 @@ class Oscillator
 
 struct RK4Table
 {
-    static constexpr size_t stages = 4;
+    static constexpr std::size_t stages = 4;
     static constexpr std::array<double, stages> c = {0.0, 0.5, 0.5, 1.0};
     static constexpr std::array<double, stages> b = {1.0/6, 1.0/3, 1.0/3, 1.0/6};
+    static constexpr std::array<double, stages> b_error = {-1.0/6, 1.0/3, 1.0/3, -1.0/6};
 
     static constexpr std::array<std::array<double, stages-1>, stages> a = {
         std::array<double, 3>{0.0, 0.0, 0.0},
@@ -32,18 +33,27 @@ struct RK4Table
     };
 };
 
+struct StepControl
+{
+    double minStep;
+    double maxStep;
+    double tolerance;
+    double safetyFactor;
+};
+
 template <typename ButcherTable>
 class NumericalMethod
 {
     ButcherTable butcherTable;
+    StepControl stepControl;
 public:
-    NumericalMethod(ButcherTable const& bt) :
-        butcherTable(bt)
+    NumericalMethod(ButcherTable const& bt, StepControl const &stepControl_)
+        : butcherTable(bt), stepControl(stepControl_)
     {}
 
     template <typename Parameters, typename RHS, typename Step>
     typename RHS::State makeStep(typename RHS::State const &current, Parameters const &arg, Step const &h,
-                                 RHS const &rhs) const
+                                 RHS const &rhs, double &errorEstimate) const
     {
         using State = typename RHS::State;
         std::array<State, ButcherTable::stages> k;
@@ -58,25 +68,49 @@ public:
             k[i] = State{rhs.evaluate(tmp, arg + h * ButcherTable::c[i])};
         }
         State result = current;
-        for (std::size_t i = 0; i < ButcherTable::stages; ++i) {
+        State error = State::Zero();
+        for (std::size_t i = 0; i < ButcherTable::stages; ++i)
+        {
             result = result + h * k[i] * ButcherTable::b[i];
+            error = error + h * k[i] * ButcherTable::b_error[i];
         }
+        errorEstimate = error.norm();
         return result;
     }
 
     template <typename Parameters, typename RHS, typename Step>
-    typename RHS::State integrate(typename RHS::State const &current, Parameters const &argBegin,
-                                  Parameters const &argEnd, Step const &h, RHS const &rhs) const
+    typename RHS::State integrate(typename RHS::State const &initial, Parameters const &argBegin,
+                                  Parameters const &argEnd, Step const &initialH, RHS const &rhs) const
     {
         using State = typename RHS::State;
-        State tmp = current;
-        for (Parameters t = argBegin; t.t < argEnd.t; t = t + h)
+        State tmp = initial;
+        Parameters arg = argBegin;
+        Step h = initialH;
+        while (arg.t < argEnd.t)
         {
-            tmp = makeStep(tmp, t, h, rhs);
-            if ((t + h).t > argEnd.t)
+            double error;
+            State newState = makeStep(tmp, arg, h, rhs, error);
+            if (error < stepControl.tolerance || h <= stepControl.minStep)
             {
-                tmp = makeStep(tmp, t, argEnd - t, rhs);
-                break;
+                tmp = newState;
+                arg = arg + h;
+                if (error > 0)
+                {
+                    double scale = stepControl.safetyFactor * std::pow(stepControl.tolerance / error, 0.2);
+                    scale = std::min(2., std::max(0.1, scale));
+                    h = std::min(stepControl.maxStep, std::max(stepControl.minStep, h * scale));
+                }
+                else {
+                    h = std::min(stepControl.maxStep, h * 2.);
+                }
+            }
+            else
+            {
+                double scale = stepControl.safetyFactor * std::pow(stepControl.tolerance / error, 0.2);
+                h = std::max(stepControl.minStep, h * std::max(0.1, scale));
+            }
+            if (arg.t + h > argEnd.t) {
+                h = argEnd.t - arg.t;
             }
         }
         return tmp;

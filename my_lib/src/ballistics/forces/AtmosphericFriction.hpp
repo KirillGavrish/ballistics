@@ -130,20 +130,19 @@ public:
 };
 
 
-template <typename AtmosphereModel, typename SatelliteParameters, typename Provider>
+template <typename AtmosphereModel>
 class AtmosphericFriction
 {
-    SatelliteParameters const satelliteParameters;
     AtmosphereModel atmosphereModel;
 public:
-
+    template <typename SatelliteParameters, typename Parameters>
     Vector3d calcForce(State const &state, SatelliteParameters const &satelliteParameters,
-                       Provider const &provider) const
+                       Parameters const &parameters) const
     {
-        Vector3d const &earthAngularVelocityEci = provider.earthAngularVelocity();
-        Vector3d const relativeVelocity = state.velocity - earthAngularVelocityEci.cross(state.position);
+        Vector3d const &earthAngularVelocity = parameters.earthAngularVelocity;
+        Vector3d const relativeVelocity = (state.velocity - earthAngularVelocity.cross(state.position)).eval();
         auto const density = atmosphereModel.calcDensity(state.position);
-        return Vector3d{(-density * relativeVelocity.norm() / 2) * satelliteParameters.Area *
+        return Vector3d{(-density * relativeVelocity.norm() / 2) * satelliteParameters.area *
                         satelliteParameters.dragCoefficient * relativeVelocity};
     }
 };

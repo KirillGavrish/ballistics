@@ -52,11 +52,11 @@ template <typename T>
     const double cosTrueAnomaly = std::cos(trueAnomaly);
     const double sinTrueAnomaly = std::sin(trueAnomaly);
 
-    const Vector3d position = Vector3d((cosArgumentPeriapsisAndTrueAnomaly * cosAscendingNode -
+    const Vector3d position = (Vector3d((cosArgumentPeriapsisAndTrueAnomaly * cosAscendingNode -
                                         cosInclination * sinArgumentPeriapsisAndTrueAnomal * sinAscendingNode),
                                        (cosArgumentPeriapsisAndTrueAnomaly * sinAscendingNode +
                                         cosInclination * sinArgumentPeriapsisAndTrueAnomal * cosAscendingNode),
-                                       (sinArgumentPeriapsisAndTrueAnomal * sinInclination)) * distance;
+                                       (sinArgumentPeriapsisAndTrueAnomal * sinInclination)) * distance).eval();
 
     const double sqrtGravParamByFocalParameter = std::sqrt(gravityParameter / focalParameter);
     const double cosTrueAnomalyPlusEcc = cosTrueAnomaly + eccentricity;

@@ -50,9 +50,9 @@ public:
             auto sigma = [this](std::size_t const n, std::size_t const i) -> double {
                 return 1. / std::sqrt(W[n](i));
             };
-            State deltaX0 = State::Zero();
+            State delta = State::Zero();
             for (std::size_t i = 0; i < StateSize; ++i) {
-                deltaX0[i] = sigma(0, i) * 0.1;
+                delta[i] = sigma(0, i) * 0.1;
             }
             std::vector<Eigen::Matrix<double, StateSize, StateSize>> const A(N(),
                                                                              Eigen::Matrix<double, StateSize, StateSize>::Zeros());
@@ -61,28 +61,29 @@ public:
             for (std::size_t k = 0; k < State::size(); ++k)
             {
                 computed[0] = X0;
-                computed[0][k] += deltaX0[k];
-                for (std::size_t n = 0; n < N()-1; ++n)
+                computed[0][k] += delta[k];
+                for (std::size_t n = 1; n < N(); ++n)
                 {
-                    computed.push_back(numericMethod.integrate(computed.back(), data.params(n+1),
-                                       data.params(n+1) - data.params(n), NumericMethod::RHS));
+                    computed[n] = numericMethod.integrate(computed[n-1], data.params(n),
+                                                          data.params(n) - data.params(n-1), NumericMethod::RHS);
                     for (std::size_t j = 0; j < StateSize; ++j)
                     {
-                        A[n](k, j) = (computed.back()[j] - data.obs(n)[j]) / deltaX0[k];
-                        b[n][j] = data.obs(n)[j] - computed.back()[j];
+                        A[n](k, j) = (computed[n][j] - data.obs(n)[j]) / delta[k];
+                        b[n][j] = data.obs(n)[j] - computed[n][j];
                     }
                 }
             }
             auto P = Eigen::Matrix<double, StateSize, StateSize>::Zero();
             auto ATWb = Eigen::Matrix<double, StateSize, 1>::Zero();
+            Eigen::Matrix<double, StateSize, StateSize> ATW;
             for (std::size_t n = 0; n < N(); ++n)
             {
-                Eigen::Matrix<double, StateSize, StateSize> const ATW = A[n].transpose() * W[n];
+                ATW = A[n].transpose() * W[n];
                 P += ATW * A[n];
                 ATWb += ATW * b[n];
             }
             P = P.inverse();
-            State deltaX = State{P * ATWb};
+            State deltaX = State(P * ATWb);
             X0 = X0 + deltaX;
             auto RMS = [this, &b]() -> double
             {

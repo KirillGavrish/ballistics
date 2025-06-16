@@ -84,7 +84,7 @@ EOPContainer parseEOP(std::ifstream const &eopFile)
     if (!optV) {
         throw BallisticsException("Cannot parse data!");
     }
-    auto fieldEOP = std::vector<std::vector<double>>(6);
+    std::vector<std::vector<double>> fieldEOP(6);
     for (u32 line = 0; line < static_cast<u32>(optV->value.size() / 16); ++line)
     {
         fieldEOP[0].push_back(optV->value[line * 16 + 3]);

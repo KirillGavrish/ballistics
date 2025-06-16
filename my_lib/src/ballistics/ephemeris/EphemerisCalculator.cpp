@@ -6,7 +6,7 @@ Vector3d EphemerisCalculator::calcPosition(TDB const time, CelestialBodies origi
     double position[3];
     calceph_compute(calceph, time.jDay(), time.jDayPart(), static_cast<int>(body),
                     static_cast<int>(origin), position);
-    return Vector3d{position} * 1000;
+    return (Vector3d(position) * 1000).eval();
 }
 
 Vector6d EphemerisCalculator::calcState(TDB const time, CelestialBodies origin, CelestialBodies body) const
@@ -14,7 +14,7 @@ Vector6d EphemerisCalculator::calcState(TDB const time, CelestialBodies origin, 
     double state[6];
     calceph_compute(calceph, time.jDay(), time.jDayPart(), static_cast<int>(body),
                     static_cast<int>(origin), state);
-    return Vector6d{state} * 1000;
+    return (Vector6d(state) * 1000).eval();
 }
 
 double EphemerisCalculator::au() const
